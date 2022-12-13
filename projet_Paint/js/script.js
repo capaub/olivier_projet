@@ -28,7 +28,7 @@ struturHTML.innerHTML = `
 
 const myDraw = document.querySelector('#drawingArea');
 const ctx = myDraw.getContext('2d');
-
+console.log(myDraw)
 let isDrawing = false;
 let x = 0;
 let y = 0;
@@ -43,25 +43,15 @@ let y = 0;
 
 //______________________________________TEST____________________________________//
 
-// let playground=document.querySelector("#playground");
-// let xcoord=document.querySelector("#x-coord span");
-// let ycoord=document.querySelector("#y-coord span");
-
-// function logMovement(event)
-// {
-//     xcoord.innerHTML=event.offsetX;
-//     ycoord.innerText=event.offsetY;
-// };
-
 // à essayer d'ecrir sous forme de fonction non fléchée
-// la propriété .offsetX & .offsetY ne fonctione pas avec mousemove !!??
+
 myDraw.addEventListener('mousedown', e => {
   x = e.offsetX;
   y = e.offsetY;
   isDrawing = true;
 });
 // à essayer d'ecrir sous forme de fonction non fléchée
-// la propriété .offsetX & .offsetY ne fonctione pas avec mousemove !!??
+
 myDraw.addEventListener('mousemove', e => {
   if (isDrawing === true) {
     drawLine(ctx, x, y, e.offsetX, e.offsetY);
@@ -70,6 +60,7 @@ myDraw.addEventListener('mousemove', e => {
   }
 });
 // à essayer d'ecrir sous forme de fonction non fléchée
+
 window.addEventListener('mouseup', e => {
   if (isDrawing === true) {
     drawLine(ctx, x, y, e.offsetX, e.offsetY);
@@ -82,7 +73,7 @@ window.addEventListener('mouseup', e => {
 function drawLine(ctx, x1, y1, x2, y2) {
     ctx.beginPath();
     ctx.strokeStyle = 'black';
-    ctx.lineWidth = 1;
+    ctx.lineWidth = 10;
     ctx.moveTo(x1, y1);
     ctx.lineTo(x2, y2);
     ctx.stroke();
