@@ -72,7 +72,9 @@ window.addEventListener('mouseup', e => {
 
 function drawLine(ctx, x1, y1, x2, y2) {
     ctx.beginPath();
+//  ajouter une variable pour que l'utilisateur choisis sa couleur
     ctx.strokeStyle = 'black';
+//  ajouter une variable pour que l'utilisateur choisis sa taille de pinceau en pixel
     ctx.lineWidth = 10;
     ctx.moveTo(x1, y1);
     ctx.lineTo(x2, y2);
