@@ -28,10 +28,13 @@ struturHTML.innerHTML = `
 
 const myDraw = document.querySelector('#drawingArea');
 const ctx = myDraw.getContext('2d');
-console.log(myDraw)
+
 let isDrawing = false;
 let x = 0;
 let y = 0;
+
+// let colorLine = ;
+// let thicknessLine = ;
 
 // déclaration des fonctions
 
@@ -43,38 +46,38 @@ let y = 0;
 
 //______________________________________TEST____________________________________//
 
-// à essayer d'ecrir sous forme de fonction non fléchée
+// à essayer d'ecrir sous forme de fonction non fléchée, à voir comment faire avec "l'événement "
 
 myDraw.addEventListener('mousedown', e => {
-  x = e.offsetX;
-  y = e.offsetY;
-  isDrawing = true;
-});
-// à essayer d'ecrir sous forme de fonction non fléchée
-
-myDraw.addEventListener('mousemove', e => {
-  if (isDrawing === true) {
-    drawLine(ctx, x, y, e.offsetX, e.offsetY);
     x = e.offsetX;
     y = e.offsetY;
-  }
+    isDrawing = true;
+});
+// à essayer d'ecrir sous forme de fonction non fléchée, à voir comment faire avec "l'événement "
+
+myDraw.addEventListener('mousemove', e => {
+    if (isDrawing === true) {
+        drawLine(ctx, x, y, e.offsetX, e.offsetY);
+        x = e.offsetX;
+        y = e.offsetY;
+    };
 });
 // à essayer d'ecrir sous forme de fonction non fléchée
 
 window.addEventListener('mouseup', e => {
-  if (isDrawing === true) {
-    drawLine(ctx, x, y, e.offsetX, e.offsetY);
-    x = 0;
-    y = 0;
-    isDrawing = false;
-  }
+    if (isDrawing === true) {
+        drawLine(ctx, x, y, e.offsetX, e.offsetY);
+        x = 0;
+        y = 0;
+        isDrawing = false;
+    };
 });
 
 function drawLine(ctx, x1, y1, x2, y2) {
     ctx.beginPath();
-//  ajouter une variable pour que l'utilisateur choisis sa couleur
+//  ajouter une variable pour que l'utilisateur choisise sa couleur
     ctx.strokeStyle = 'black';
-//  ajouter une variable pour que l'utilisateur choisis sa taille de pinceau en pixel
+//  ajouter une variable pour que l'utilisateur choisise sa taille de pinceau en pixel
     ctx.lineWidth = 10;
     ctx.moveTo(x1, y1);
     ctx.lineTo(x2, y2);
