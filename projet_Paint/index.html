@@ -1,38 +1,35 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <script src="https://kit.fontawesome.com/40c17115ab.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Paint</title>
+    <title>Page de Dessin</title>
     <meta name="description" content="super site pour dessiner">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <section id="dessin">
+        <div id="areaDraw">
+        <canvas id="feuille" width="600" height="600"></canvas>
+        </div>
+        <div id="palette">
+            <div data-color="green"></div>
+            <div data-color="red"></div>
+            <div data-color="blue"></div>
+            <div data-color="yellow"></div>
+            <div data-color="pink"></div>
+            <div data-color="black"></div>
+        </div>
+        <div id="outils">
+            <div id="plus"><i class="fa-solid fa-plus"></i>plus</div>
+            <div id="moins"><i class="fa-solid fa-minus"></i>moins</div>
+            <div id="gomme"><i class="fa-solid fa-eraser"></i>gomme</div>
+            <div id="effacer"><i class="fa-solid fa-trash-can"></i>delete</div>
+        </div>
+    </section>
+    <script src="js/Dessin.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
-
-<!--
-<header class="drawingSite">
-    <h1>Super site de dessin en ligne</h1>
-</header>
-<main class="drawingMain">
-    <section class="drawingMain-area Area">
-        <nav class="Area-drawingTools">
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </nav>
-        <div class="Area-drawing">
-            <canvas>Désolé, votre navigateur ne prend pas en charge CANVAS...</canvas>
-        </div>
-    </section>
-    <section class="">
-    </section>
-<footer class="drawingFooter">
-    <p class="footer"></p>
-</footer>
--->
