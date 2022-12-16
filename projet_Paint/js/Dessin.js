@@ -1,3 +1,7 @@
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+        let canvas = document.getElementById("areaDraw")
+
 class Dessin{
     constructor(){
 
@@ -8,6 +12,9 @@ class Dessin{
 
         this.ctx = sheet.getContext("2d");
         this.ctx.lineWidth = 2;
+
+
+        
 
 //J'écoute les différents événement de utilisateur pour dessiner
 
@@ -54,6 +61,16 @@ class Dessin{
         ctx.lineTo(x2, y2);
         ctx.stroke();
         ctx.closePath();
+    };
+
+// Fonction resize ajouter un window.alert avec "attention tu vas perdre ton image !"
+
+    resizeCanvas(){
+        width = window.innerWidth * 0.5;
+        height = window.innerHeight * 0.5;
+        canvas.innerHTML=`
+            <canvas id="feuille" width="${width}" height="${height}"></canvas>
+            `
     };
 
 //Fonction pour le changement de couleurs

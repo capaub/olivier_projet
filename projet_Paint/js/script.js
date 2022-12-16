@@ -4,11 +4,19 @@
 
 // `;
 
+// J'attribut le background suivant les couleurs choisit dans les <div> de mes couleurs prédéfinit
+
+
+
 // Création de mon objet canvas de la classe Dessin
 
 let drawArea = new Dessin("#feuille");  
 
-// J'attribut le background suivant les couleurs choisit dans les <div> de mes couleurs prédéfinit
+
+window.onresize = () => {
+    drawArea.resizeCanvas();
+    // drawArea = new Dessin("#feuille")
+}
 
 document.querySelectorAll("#palette div").forEach(color => {
         color.style.backgroundColor = color.dataset.color;
@@ -18,9 +26,10 @@ document.querySelectorAll("#palette div").forEach(color => {
         color.addEventListener("click", () => {
             drawArea.setColor(color.dataset.color);
         });
-    });
+});
 
 // Déclaration des fonctions
+
 
 // Ecoute des événements
 
