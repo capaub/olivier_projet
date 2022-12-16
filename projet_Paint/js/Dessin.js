@@ -2,7 +2,7 @@
 
 let width = window.innerWidth;
 let height = window.innerHeight;
-let canvas = document.getElementById("areaDraw")
+let canvas = document.getElementById("areaDraw");
 
 // Création de la classe Dessin
 
@@ -10,8 +10,8 @@ class Dessin{
     constructor(){
 
         let isDrawing = false;
-        let x = 0;
-        let y = 0;
+        let x;
+        let y;
         let sheet = document.querySelector("#feuille");
 
         this.ctx = sheet.getContext("2d");
@@ -36,8 +36,6 @@ class Dessin{
         sheet.addEventListener('mouseup', e =>{
             if (isDrawing){
                 this.drawLine(this.ctx, x, y, e.offsetX, e.offsetY);
-                x = 0;
-                y = 0;
                 isDrawing = false;
             };
         });
@@ -45,8 +43,6 @@ class Dessin{
         sheet.addEventListener('mouseout', e =>{
             if (isDrawing){
                 this.drawLine(this.ctx, x, y, e.offsetX, e.offsetY);
-                x = 0;
-                y = 0;
                 isDrawing = false;
             };
         });
@@ -99,10 +95,15 @@ class Dessin{
     // Fonction resize // ajouter un window.alert avec "attention tu vas perdre ton dessin !"
 
     resizeCanvas(){
-        width = window.innerWidth * 0.5;
-        height = window.innerHeight * 0.5;
+        width = window.innerWidth * 0.8;
+        height = window.innerHeight * 0.8;
         canvas.innerHTML=`
             <canvas id="feuille" width="${width}" height="${height}"></canvas>
             `
     };
+
+    drawText() {
+        this.ctx.font = '48px serif';
+        this.ctx.fillText('Hello world');
+      }
 };

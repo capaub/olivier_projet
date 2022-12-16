@@ -44,3 +44,7 @@ document.querySelector("#gomme").addEventListener("click", () => {
 document.querySelector("#effacer").addEventListener("click", () => {
     drawArea.erase();
 });
+
+document.querySelector("#text").addEventListener("click", () => {
+    drawArea.drawText();
+});

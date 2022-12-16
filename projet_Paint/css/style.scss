@@ -1,15 +1,16 @@
 @import 'mixins';
 
-#feuille, #feuille2test{
+#feuille{
     border: 1px solid black;
-}
+};
 
 #dessin{
-    display: flex;
-}
-#palette, #outils{
-    flex: 1;
-}
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 1fr 1fr;
+};
+
+
 
 #palette div, #outils div{
     width: 2em;
@@ -20,4 +21,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+};
+
+#palette{
+    grid-row: 1 / 2;
 }
