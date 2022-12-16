@@ -63,7 +63,7 @@ class Dessin{
         ctx.closePath();
     };
 
-// Fonction resize ajouter un window.alert avec "attention tu vas perdre ton image !"
+// Fonction resize // ajouter un window.alert avec "attention tu vas perdre ton dessin !"
 
     resizeCanvas(){
         width = window.innerWidth * 0.5;

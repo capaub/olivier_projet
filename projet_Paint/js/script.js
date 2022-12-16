@@ -12,10 +12,9 @@
 
 let drawArea = new Dessin("#feuille");  
 
-
 window.onresize = () => {
     drawArea.resizeCanvas();
-    // drawArea = new Dessin("#feuille")
+    drawArea = new Dessin("#feuille")
 }
 
 document.querySelectorAll("#palette div").forEach(color => {
