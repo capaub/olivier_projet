@@ -4,18 +4,13 @@
 
 // `;
 
-// J'attribut le background suivant les couleurs choisit dans les <div> de mes couleurs prédéfinit
-
-
-
 // Création de mon objet canvas de la classe Dessin
 
 let drawArea = new Dessin("#feuille");  
 
-window.onresize = () => {
-    drawArea.resizeCanvas();
-    drawArea = new Dessin("#feuille")
-}
+// Déclaration des fonctions
+
+    // J'attribut le background suivant les couleurs choisit dans les <div> de mes couleurs prédéfinit
 
 document.querySelectorAll("#palette div").forEach(color => {
         color.style.backgroundColor = color.dataset.color;
@@ -27,10 +22,12 @@ document.querySelectorAll("#palette div").forEach(color => {
         });
 });
 
-// Déclaration des fonctions
+window.onresize = () => {
+    drawArea.resizeCanvas();
+    drawArea = new Dessin("#feuille");
+};
 
-
-// Ecoute des événements
+// Ecoute des événements & execution des != fonctions
 
 document.querySelector("#plus").addEventListener("click", () => {
     drawArea.upSizing();
@@ -47,6 +44,3 @@ document.querySelector("#gomme").addEventListener("click", () => {
 document.querySelector("#effacer").addEventListener("click", () => {
     drawArea.erase();
 });
-
-//  test canvas responsive
-

@@ -1,6 +1,10 @@
-        let width = window.innerWidth;
-        let height = window.innerHeight;
-        let canvas = document.getElementById("areaDraw")
+// Déclaration des variables à utiliser dans la fonction resizeCanvas();
+
+let width = window.innerWidth;
+let height = window.innerHeight;
+let canvas = document.getElementById("areaDraw")
+
+// Création de la classe Dessin
 
 class Dessin{
     constructor(){
@@ -13,10 +17,7 @@ class Dessin{
         this.ctx = sheet.getContext("2d");
         this.ctx.lineWidth = 2;
 
-
-        
-
-//J'écoute les différents événement de utilisateur pour dessiner
+    //J'écoute les différents événement de utilisateur pour dessiner
 
         sheet.addEventListener("mousedown", e =>{
             isDrawing = true;
@@ -51,7 +52,7 @@ class Dessin{
         });
     };
 
-//Fonction pour déssiner
+    //Fonction pour déssiner
 
     drawLine(ctx, x1, y1, x2, y2){
         ctx.beginPath();
@@ -62,8 +63,40 @@ class Dessin{
         ctx.stroke();
         ctx.closePath();
     };
+    
+    //Fonction pour le changement de couleurs
+    
+    setColor(color){
+        this.ctx.strokeStyle = color;
+    };
+    
+    //Fonction plus gros trait
+    
+    upSizing(){
+        this.ctx.lineWidth ++;
+    };
+    
+    //Fonction plus petit trait 
+    
+    // --/-- écrite en ternaire --/-- prends moins de place mais apprends à marché avant de vouloir courir !!!!! (à utiliser seulement pour des conditions unique / simple)
+    //stucture d'une condition ternaire : condition ? if : else ; 
+    
+    // downSizing(){
+        //     if(this.ctx.lineWidth < 1){
+            //         this.ctx.lineWidth = 1;
+            //     } this.ctx.lineWidth --;
+            // };
+            
+    downSizing(){this.ctx.lineWidth < 1 ? this.ctx.lineWidth = 1 : this.ctx.lineWidth --;
+    };
 
-// Fonction resize // ajouter un window.alert avec "attention tu vas perdre ton dessin !"
+    //Fonction effacer 
+    
+    erase(){
+        this.ctx.clearRect(0, 0, innerWidth, innerHeight);
+    };
+
+    // Fonction resize // ajouter un window.alert avec "attention tu vas perdre ton dessin !"
 
     resizeCanvas(){
         width = window.innerWidth * 0.5;
@@ -71,37 +104,5 @@ class Dessin{
         canvas.innerHTML=`
             <canvas id="feuille" width="${width}" height="${height}"></canvas>
             `
-    };
-
-//Fonction pour le changement de couleurs
-
-    setColor(color){
-        this.ctx.strokeStyle = color;
-    };
-
-//Fonction plus gros trait
-
-    upSizing(){
-        this.ctx.lineWidth ++;
-    };
-
-//Fonction plus petit trait 
-
-// --/-- écrite en ternaire --/-- prends moins de place mais apprends à marché avant de vouloir courir !!!!! (à utiliser seulement pour des conditions unique / simple)
-//stucture d'une condition ternaire : condition ? if : else ; 
-
-    // downSizing(){
-    //     if(this.ctx.lineWidth < 1){
-    //         this.ctx.lineWidth = 1;
-    //     } this.ctx.lineWidth --;
-    // };
-
-     downSizing(){this.ctx.lineWidth < 1 ? this.ctx.lineWidth = 1 : this.ctx.lineWidth --;
-    };
-
-//Fonction effacer 
-
-    erase(){
-        this.ctx.clearRect(0, 0, innerWidth, innerHeight);
     };
 };
