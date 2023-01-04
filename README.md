@@ -13,12 +13,3 @@ Paint :
 - Proposer une sauvegarde du dessin
 
 - Ajouter les formes automatique
-
------------------------------------en parallele  pour l'ego----------------------------------
-
-Finalement l'ego va bien ! ;)
-
-Projet remis a plus tard
-
-Slider d'image : 
-
